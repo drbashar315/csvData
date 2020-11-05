@@ -39,6 +39,9 @@ class csvData():
             #print(field, s)
             self.filteredFields.append(s)
     def createTable(self):
+        sql = ''
+        for field in self.filteredFields:
+            sql+=field
         '''
         # use the filtered fieldnames
         # return sql string
@@ -58,7 +61,6 @@ class csvData():
         ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
         '''
-        sql = ''
         return sql
     def insertSql(self,filename):
         sql = ''

@@ -6,3 +6,8 @@ print(c.originalFields)
 print(c.filteredFields)
 c.guessTypes()
 
+#
+print(c.createTable())
+#c.insertSql('export.sql')
+
+
