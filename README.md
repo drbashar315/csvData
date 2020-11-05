@@ -24,3 +24,12 @@
 * bad data will be skipped
 * CSV file must be openable
 * CSV data conforms to the way the python csv module parses it
+
+##SQL types
+* datetime
+* date
+* decimal**
+* int*
+* varchar*
+
+
