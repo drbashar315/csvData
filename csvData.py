@@ -1,4 +1,4 @@
-import csv,re,sys,datetime
+import csv,re,sys,datetime,pymysql
 
 class csvData():
     def __init__(self,fn):
@@ -158,6 +158,32 @@ class csvData():
         #run 2 unit tests - one which there is a mismatch and one where there is not
         #use getReader method
         pass
+    def getCursor0(self):
+        conn = pymysql.connect(host='mysql.clarksonmsda.org', 
+        port=3306, 
+        user='ia626',
+        passwd='ia626clarkson', 
+        db='ia626', autocommit=True) #setup our credentials
+        cur = conn.cursor(pymysql.cursors.DictCursor)
+        return cur
+    def getCursor1(self,host,port,user,passwd,db):
+        conn = pymysql.connect(host=host, 
+        port=port, 
+        user=user,
+        passwd=passwd, 
+        db=db, autocommit=True) #setup our credentials
+        cur = conn.cursor(pymysql.cursors.DictCursor)
+        return cur
+    def getCursor2(self):
+        import config
+        conn = pymysql.connect(host=config.DB['host'], 
+        port=config.DB['port'], 
+        user=config.DB['user'],
+        passwd=config.DB['passwd'], 
+        db=config.DB['db'], autocommit=True) #setup our credentials
+        cur = conn.cursor(pymysql.cursors.DictCursor)
+        return cur
+        
 if __name__ == '__main__':#if script is being run as a CLI script
     import sys
     
